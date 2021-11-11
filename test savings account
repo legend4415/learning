@@ -1,0 +1,13 @@
+public class Savingstest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Savingsaccount first = new Savingsaccount(300, 3.5);
+		first.withdrawl(20);
+		first.withdrawl(20);
+		first.monthlyProcess();
+		first.print();
+
+	}
+
+}
