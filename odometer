@@ -1,0 +1,39 @@
+public class Odometer {
+	
+	private int miles;
+	private double fuelEffiency;
+	private int odometer;
+	
+	public Odometer() {
+		
+	}
+	public void setFuelEffiency(double fuelEffiency) {
+		this.fuelEffiency = fuelEffiency;
+	}
+	public double getFuelEffiency() {
+		return fuelEffiency;
+	}
+	// reset miles to zero;
+	public void Reset() {
+		this.miles = 0;
+	}
+	
+	public void setMiles(int miles) {
+		this.miles = miles;
+	}
+	// add gas to odometer
+	public int getMilesRan() {
+		return odometer += miles;
+	}
+	// how many gas was used;
+	public double gasConsumed() {
+		return odometer / fuelEffiency;
+	}
+	public String toString() {
+		System.out.println("you drove "+ getMilesRan()+ " miles");
+	  System.out.println("you used "+ gasConsumed() + " gallons of gas");
+	  return null;
+	
+	}
+
+}
