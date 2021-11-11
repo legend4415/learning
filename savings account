@@ -1,0 +1,44 @@
+public class Savingsaccount extends Bankaccount {
+		boolean active; 		
+
+	public Savingsaccount(int balance, double interestRate) {
+		super(balance, interestRate);
+		// TODO Auto-generated constructor stub
+	// check if less than 25 , if so account is not active
+			if(balance < 25)
+			active = false;
+			else
+				active = true;
+		}
+	
+	// if active get withdrawl from bankaccount
+	public void withdrawl(double amount) {
+			if(active) {
+				super.withdrawl(amount);
+			}
+	}
+			// deposit
+	public void deposit(double amount) {
+		if (balance + amount > 25)
+			active = true;
+		if (active)
+			super.deposit(amount);
+		else
+			System.out.println("not active");
+	}
+	public void monthlyProcess() {
+		if (numOfWithdrawls > 4) {
+			monthlyServiceFee += numOfWithdrawls - 4;
+		}
+		super.monthlyProcess();
+		
+	}
+	// prints the text
+	public void print() {
+	
+			System.out.println("balance "+ balance);
+	        System.out.println("Charges: " + monthlyServiceFee);
+	      System.out.println("Number of Transactions: " + (numOfDeposits + numOfWithdrawls));
+	
+	    }
+}
