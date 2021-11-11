@@ -1,0 +1,39 @@
+public abstract class Bankaccount {
+	double balance;
+	double numOfDeposits;
+	double numOfWithdrawls;
+	double annualInterestRate ;
+	double monthlyServiceFee;
+
+	public Bankaccount(double balance, double annualInterestRate) {
+		this.balance = balance;
+		this.annualInterestRate = annualInterestRate;
+	}
+	// ammount deposited
+	public void deposit(double amount) {
+		balance+= amount;
+		// number of times deposited
+		numOfDeposits++;
+	}
+	// amount withdrawls
+	public void withdrawl(double amount) {
+		balance-=amount;
+		numOfWithdrawls++;
+	}
+	// getting interest rate
+	public void interestRate() {
+		double monthInterestRate=(annualInterestRate/12);
+        double monthInterest=monthInterestRate*balance;
+        balance+=monthInterest;
+		
+	}
+	// checks monthly process
+	public void monthlyProcess() {
+		balance -= monthlyServiceFee;
+		interestRate();
+		numOfWithdrawls=0;
+		numOfDeposits = 0;
+		monthlyServiceFee = 0;
+	}
+	
+}
